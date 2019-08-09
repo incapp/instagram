@@ -56,36 +56,37 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = editTextEmail.getText().toString();
-
-                if (email.isEmpty()) {
-                    editTextEmail.setError("Required!");
-                    editTextEmail.requestFocus();
-                } else {
-                    Utils.hideKeyboard(LoginActivity.this);
-
-                    FirebaseAuth.getInstance()
-                            .sendPasswordResetEmail(email)
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Toast.makeText(LoginActivity.this,
-                                            "Check your email to reset password.", Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(LoginActivity.this,
-                                            e.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                }
-            }
-        });
+//        Commented to test private repo.
+//        textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String email = editTextEmail.getText().toString();
+//
+//                if (email.isEmpty()) {
+//                    editTextEmail.setError("Required!");
+//                    editTextEmail.requestFocus();
+//                } else {
+//                    Utils.hideKeyboard(LoginActivity.this);
+//
+//                    FirebaseAuth.getInstance()
+//                            .sendPasswordResetEmail(email)
+//                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                @Override
+//                                public void onSuccess(Void aVoid) {
+//                                    Toast.makeText(LoginActivity.this,
+//                                            "Check your email to reset password.", Toast.LENGTH_SHORT).show();
+//                                }
+//                            })
+//                            .addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+//                                    Toast.makeText(LoginActivity.this,
+//                                            e.getMessage(), Toast.LENGTH_SHORT).show();
+//                                }
+//                            });
+//                }
+//            }
+//        });
     }
 
     private void login() {
